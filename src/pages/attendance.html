@@ -1,0 +1,251 @@
+<div
+  class="attendance-page bg-white rounded-2xl border border-[#dee2e6]/40 p-6 premium-shadow smooth-transition"
+>
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-urdu-kasheeda text-[#4b7c3d]">
+      حاضری اور سبق لائن شمار
+    </h2>
+    <!--<span class="text-sm text-[#6c757d] font-urdu">Quran Academy Attendance Calculator</span>-->
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
+    <div class="bg-[#f8f9fa] rounded-2xl border border-[#dee2e6]/50 p-5">
+      <div class="flex items-center gap-3 mb-4">
+        <div
+          class="w-10 h-10 rounded-2xl bg-[#eaf4ec] flex items-center justify-center text-[#2d6f3b]"
+        >
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-urdu font-bold text-[#2d6f3b]">
+            طالب علم کا ابتدائی سبق
+          </h3>
+          <p class="text-xs text-[#6c757d] font-urdu">
+            ابتدائی سورۃ اور آیت منتخب کریں۔
+          </p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label
+            class="block text-xs font-urdu font-semibold text-[#4b7c3d] mb-2"
+            >سورۃ منتخب کریں</label
+          >
+          <select
+            id="start-surah"
+            onchange="populateAyahs('start')"
+            class="w-full bg-white border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:border-[#4b7c3d] outline-none smooth-transition"
+            disabled
+          >
+            <option>Loading...</option>
+          </select>
+        </div>
+        <div>
+          <label
+            class="block text-xs font-urdu font-semibold text-[#4b7c3d] mb-2"
+            >آیت / رینج منتخب کریں</label
+          >
+          <select
+            id="start-ayah"
+            class="w-full bg-white border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:border-[#4b7c3d] outline-none smooth-transition"
+            disabled
+          >
+            <option>-- پہلے سورۃ منتخب کریں --</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[#f8f9fa] rounded-2xl border border-[#dee2e6]/50 p-5">
+      <div class="flex items-center gap-3 mb-4">
+        <div
+          class="w-10 h-10 rounded-2xl bg-[#e7f5ff] flex items-center justify-center text-[#0f6f93]"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-urdu font-bold text-[#0f6f93]">
+            طالب علم کا انتہائی سبق
+          </h3>
+          <p class="text-xs text-[#6c757d] font-urdu">
+            اختتامی سورۃ اور آیت منتخب کریں۔
+          </p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label
+            class="block text-xs font-urdu font-semibold text-[#0f6f93] mb-2"
+            >سورۃ منتخب کریں</label
+          >
+          <select
+            id="end-surah"
+            onchange="populateAyahs('end')"
+            class="w-full bg-white border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:border-[#0f6f93] outline-none smooth-transition"
+            disabled
+          >
+            <option>Loading...</option>
+          </select>
+        </div>
+        <div>
+          <label
+            class="block text-xs font-urdu font-semibold text-[#0f6f93] mb-2"
+            >آیت / رینج منتخب کریں</label
+          >
+          <select
+            id="end-ayah"
+            class="w-full bg-white border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:border-[#0f6f93] outline-none smooth-transition"
+            disabled
+          >
+            <option>-- پہلے سورۃ منتخب کریں --</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mb-6">
+    <button
+      onclick="calculateLessonLines()"
+      class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-2xl bg-gradient-to-l from-[#4b7c3d] to-[#0f6f93] text-white text-sm font-bold font-urdu shadow-lg shadow-[#4b7c3d]/20 hover:opacity-95 transition-all"
+    >
+      <i class="fa-solid fa-calculator"></i>
+      یومیہ حاضری لکھیں
+    </button>
+  </div>
+
+  <div id="output-wrapper" class="hidden">
+    <div
+      class="bg-white border border-[#dee2e6]/50 rounded-2xl p-6 text-center"
+    >
+      <span
+        class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-bold text-[#4b7c3d] bg-[#eff7ee] px-3 py-1 rounded-full"
+        >نتیجہ</span
+      >
+      <p
+        id="output-text"
+        class="mt-5 text-[#19232a] font-urdu text-base leading-relaxed"
+      ></p>
+    </div>
+  </div>
+
+  <div class="mt-6 p-5 rounded-2xl bg-[#f4f7f4] border border-[#dee2e6]/50">
+    <div
+      id="db-status"
+      class="inline-flex items-center gap-2 bg-[#f3faf5] border border-[#d6f0db] px-3 py-2 rounded-2xl text-[#3f7d55] text-xs font-semibold font-urdu"
+    >
+      <span class="w-2 h-2 rounded-full bg-[#4b7c3d] animate-pulse"></span>
+      ڈیٹا لوڈ ہو رہا ہے...
+    </div>
+    <!-- OLD Paragraph Which i Removed And Replaced Modern Design Paragraph By Deepseek-->
+    <!--<p class="mt-3 text-xs text-[#6c757d] font-urdu">یہ ٹول مدنی پھولوں کے مطابق قرآن پاک کی حاضری دیتا ہے جسے آپ ناظرہ ۔ حفظ اور برکات القرآن کورس کے طلباء کے لئے استعمال کر سکتے ہیں ۔ </p>-->
+    <!-- Ultra Attractive Attendance Note -->
+    <div
+      class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/80 p-5 mt-4 border border-emerald-100/60 shadow-lg shadow-emerald-100/30 backdrop-blur-sm"
+    >
+      <!-- Decorative Ornament - Top Right -->
+      <div
+        class="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-br from-emerald-200/30 to-teal-200/30 blur-2xl"
+      ></div>
+
+      <!-- Decorative Ornament - Bottom Left -->
+      <div
+        class="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-gradient-to-tr from-gold-200/20 to-amber-200/20 blur-2xl"
+      ></div>
+
+      <!-- Decorative Arabic Calligraphy Accent -->
+      <div class="absolute top-2 right-4 opacity-5 text-4xl font-serif">﷽</div>
+
+      <div class="relative flex items-start gap-3">
+        <!-- Premium Icon Badge -->
+        <div class="flex-shrink-0 mt-0.5">
+          <div
+            class="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/30"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 min-w-0">
+          <!-- Title Line -->
+          <div class="flex items-center gap-2 mb-1.5">
+            <span
+              class="text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-700/70"
+              >✦ Attendance Guide</span
+            >
+            <span
+              class="flex-1 h-px bg-gradient-to-r from-emerald-300/50 to-transparent"
+            ></span>
+          </div>
+
+          <!-- Main Text -->
+          <p
+            class="text-sm leading-[1.8] font-urdu text-gray-700 tracking-wide"
+          >
+            <span class="text-emerald-700 font-medium">یہ ٹول</span>
+            <span
+              class="relative inline-block mx-1 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-100/80 to-yellow-100/80 border border-amber-200/50 text-amber-800 text-xs font-bold font-sans shadow-sm"
+            >
+              مدنی پھولوں
+            </span>
+            <span class="text-emerald-700 font-medium"
+              >کے مطابق قرآن پاک کی حاضری دیتا ہے</span
+            >
+            <span class="text-gray-400 mx-1.5">•</span>
+            <span class="inline-flex flex-wrap items-center gap-1.5 mt-1">
+              <span
+                class="px-2.5 py-0.5 rounded-lg bg-emerald-100/50 text-emerald-700 text-[11px] font-medium border border-emerald-200/40 shadow-sm"
+                >ناظرہ</span
+              >
+              <span class="text-gray-300">•</span>
+              <span
+                class="px-2.5 py-0.5 rounded-lg bg-teal-100/50 text-teal-700 text-[11px] font-medium border border-teal-200/40 shadow-sm"
+                >حفظ</span
+              >
+              <span class="text-gray-300">•</span>
+              <span
+                class="px-2.5 py-0.5 rounded-lg bg-amber-100/50 text-amber-700 text-[11px] font-medium border border-amber-200/40 shadow-sm"
+                >برکات القرآن</span
+              >
+            </span>
+            <span class="text-gray-500"
+              >کورس کے طلباء کے لئے استعمال کر سکتے ہیں</span
+            >
+            <span
+              class="inline-block ml-1 text-emerald-500 text-lg leading-none"
+              >✦</span
+            >
+          </p>
+
+          <!-- Decorative Footer Dots -->
+          <div class="flex items-center gap-1 mt-2">
+            <span class="w-1 h-1 rounded-full bg-emerald-300/60"></span>
+            <span class="w-1 h-1 rounded-full bg-emerald-400/40"></span>
+            <span class="w-1 h-1 rounded-full bg-emerald-300/30"></span>
+            <span
+              class="flex-1 h-px bg-gradient-to-r from-emerald-200/30 to-transparent"
+            ></span>
+            <span
+              class="text-[10px] text-emerald-400/50 font-mono tracking-widest"
+              >✦ ✦ ✦</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,692 @@
+{
+  "1": {
+    "para_number": 1,
+    "nazrah_total-behtar_days": 92,
+    "nazrah_total-mumtaz_days": 55,
+    "hifz_total-behtar_days": 192,
+    "hifz_total-mumtaz_days": 108,
+    "nazrah_para_lines": {
+      "mumtaz": 14,
+      "behter": 8
+    },
+    "hifz_para_lines": {
+      "mumtaz": 6,
+      "behter": 4
+    },
+    "nazrah_para_days": {
+      "mumtaz": 21,
+      "behter": 36
+    },
+    "hifz_para_days": {
+      "mumtaz": 48,
+      "behter": 72
+    }
+  },
+  "2": {
+    "para_number": 2,
+    "nazrah_total-behtar_days": 116,
+    "nazrah_total-mumtaz_days": 76,
+    "hifz_total-behtar_days": 264,
+    "hifz_total-mumtaz_days": 156,
+    "nazrah_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "hifz_para_lines": {
+      "mumtaz": 6,
+      "behter": 4
+    },
+    "nazrah_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    },
+    "hifz_para_days": {
+      "mumtaz": 48,
+      "behter": 72
+    }
+  },
+  "3": {
+    "para_number": 3,
+    "nazrah_total-behtar_days": 140,
+    "nazrah_total-mumtaz_days": 97,
+    "hifz_total-behtar_days": 336,
+    "hifz_total-mumtaz_days": 204,
+    "nazrah_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "hifz_para_lines": {
+      "mumtaz": 6,
+      "behter": 4
+    },
+    "nazrah_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    },
+    "hifz_para_days": {
+      "mumtaz": 48,
+      "behter": 72
+    }
+  },
+  "4": {
+    "para_number": 4,
+    "nazrah_total-behtar_days": 164,
+    "nazrah_total-mumtaz_days": 118,
+    "hifz_total-behtar_days": 408,
+    "hifz_total-mumtaz_days": 252,
+    "nazrah_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "hifz_para_lines": {
+      "mumtaz": 6,
+      "behter": 4
+    },
+    "nazrah_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    },
+    "hifz_para_days": {
+      "mumtaz": 48,
+      "behter": 72
+    }
+  },
+  "5": {
+    "para_number": 5,
+    "nazrah_total-behtar_days": 190,
+    "nazrah_total-mumtaz_days": 141,
+    "hifz_total-behtar_days": 480,
+    "hifz_total-mumtaz_days": 300,
+    "nazrah_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "hifz_para_lines": {
+      "mumtaz": 6,
+      "behter": 4
+    },
+    "nazrah_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    },
+    "hifz_para_days": {
+      "mumtaz": 48,
+      "behter": 72
+    }
+  },
+  "6": {
+    "para_number": 6,
+    "nazrah_total-behtar_days": 208,
+    "nazrah_total-mumtaz_days": 155,
+    "hifz_total-behtar_days": 528,
+    "hifz_total-mumtaz_days": 329,
+    "nazrah_para_lines": {
+      "mumtaz": 21,
+      "behter": 16
+    },
+    "hifz_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "nazrah_para_days": {
+      "mumtaz": 14,
+      "behter": 18
+    },
+    "hifz_para_days": {
+      "mumtaz": 29,
+      "behter": 48
+    }
+  },
+  "7": {
+    "para_number": 7,
+    "nazrah_total-behtar_days": 226,
+    "nazrah_total-mumtaz_days": 168,
+    "hifz_total-behtar_days": 576,
+    "hifz_total-mumtaz_days": 358,
+    "nazrah_para_lines": {
+      "mumtaz": 22,
+      "behter": 16
+    },
+    "hifz_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "nazrah_para_days": {
+      "mumtaz": 13,
+      "behter": 18
+    },
+    "hifz_para_days": {
+      "mumtaz": 29,
+      "behter": 48
+    }
+  },
+  "8": {
+    "para_number": 8,
+    "nazrah_total-behtar_days": 244,
+    "nazrah_total-mumtaz_days": 181,
+    "hifz_total-behtar_days": 624,
+    "hifz_total-mumtaz_days": 387,
+    "nazrah_para_lines": {
+      "mumtaz": 22,
+      "behter": 16
+    },
+    "hifz_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "nazrah_para_days": {
+      "mumtaz": 13,
+      "behter": 18
+    },
+    "hifz_para_days": {
+      "mumtaz": 29,
+      "behter": 48
+    }
+  },
+  "9": {
+    "para_number": 9,
+    "nazrah_total-behtar_days": 262,
+    "nazrah_total-mumtaz_days": 194,
+    "hifz_total-behtar_days": 672,
+    "hifz_total-mumtaz_days": 416,
+    "nazrah_para_lines": {
+      "mumtaz": 22,
+      "behter": 16
+    },
+    "hifz_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "nazrah_para_days": {
+      "mumtaz": 13,
+      "behter": 18
+    },
+    "hifz_para_days": {
+      "mumtaz": 29,
+      "behter": 48
+    }
+  },
+  "10": {
+    "para_number": 10,
+    "nazrah_total-behtar_days": 282,
+    "nazrah_total-mumtaz_days": 209,
+    "hifz_total-behtar_days": 720,
+    "hifz_total-mumtaz_days": 445,
+    "nazrah_para_lines": {
+      "mumtaz": 22,
+      "behter": 16
+    },
+    "hifz_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "nazrah_para_days": {
+      "mumtaz": 13,
+      "behter": 18
+    },
+    "hifz_para_days": {
+      "mumtaz": 29,
+      "behter": 48
+    }
+  },
+  "11": {
+    "para_number": 11,
+    "nazrah_total-behtar_days": 296,
+    "nazrah_total-mumtaz_days": 221,
+    "hifz_total-behtar_days": 756,
+    "hifz_total-mumtaz_days": 469,
+    "nazrah_para_lines": {
+      "mumtaz": 25,
+      "behter": 20
+    },
+    "hifz_para_lines": {
+      "mumtaz": 12,
+      "behter": 8
+    },
+    "nazrah_para_days": {
+      "mumtaz": 12,
+      "behter": 14
+    },
+    "hifz_para_days": {
+      "mumtaz": 24,
+      "behter": 36
+    }
+  },
+  "12": {
+    "para_number": 12,
+    "nazrah_total-behtar_days": 310,
+    "nazrah_total-mumtaz_days": 231,
+    "hifz_total-behtar_days": 792,
+    "hifz_total-mumtaz_days": 493,
+    "nazrah_para_lines": {
+      "mumtaz": 30,
+      "behter": 20
+    },
+    "hifz_para_lines": {
+      "mumtaz": 12,
+      "behter": 8
+    },
+    "nazrah_para_days": {
+      "mumtaz": 10,
+      "behter": 14
+    },
+    "hifz_para_days": {
+      "mumtaz": 24,
+      "behter": 36
+    }
+  },
+  "13": {
+    "para_number": 13,
+    "nazrah_total-behtar_days": 324,
+    "nazrah_total-mumtaz_days": 241,
+    "hifz_total-behtar_days": 828,
+    "hifz_total-mumtaz_days": 517,
+    "nazrah_para_lines": {
+      "mumtaz": 30,
+      "behter": 20
+    },
+    "hifz_para_lines": {
+      "mumtaz": 12,
+      "behter": 8
+    },
+    "nazrah_para_days": {
+      "mumtaz": 10,
+      "behter": 14
+    },
+    "hifz_para_days": {
+      "mumtaz": 24,
+      "behter": 36
+    }
+  },
+  "14": {
+    "para_number": 14,
+    "nazrah_total-behtar_days": 338,
+    "nazrah_total-mumtaz_days": 251,
+    "hifz_total-behtar_days": 864,
+    "hifz_total-mumtaz_days": 541,
+    "nazrah_para_lines": {
+      "mumtaz": 30,
+      "behter": 20
+    },
+    "hifz_para_lines": {
+      "mumtaz": 12,
+      "behter": 8
+    },
+    "nazrah_para_days": {
+      "mumtaz": 10,
+      "behter": 14
+    },
+    "hifz_para_days": {
+      "mumtaz": 24,
+      "behter": 36
+    }
+  },
+  "15": {
+    "para_number": 15,
+    "nazrah_total-behtar_days": 354,
+    "nazrah_total-mumtaz_days": 263,
+    "hifz_total-behtar_days": 900,
+    "hifz_total-mumtaz_days": 565,
+    "nazrah_para_lines": {
+      "mumtaz": 30,
+      "behter": 20
+    },
+    "hifz_para_lines": {
+      "mumtaz": 12,
+      "behter": 8
+    },
+    "nazrah_para_days": {
+      "mumtaz": 10,
+      "behter": 14
+    },
+    "hifz_para_days": {
+      "mumtaz": 24,
+      "behter": 36
+    }
+  },
+  "16": {
+    "para_number": 16,
+    "nazrah_total-behtar_days": 366,
+    "nazrah_total-mumtaz_days": 272,
+    "hifz_total-behtar_days": 929,
+    "hifz_total-mumtaz_days": 586,
+    "nazrah_para_lines": {
+      "mumtaz": 35,
+      "behter": 25
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 10
+    },
+    "nazrah_para_days": {
+      "mumtaz": 9,
+      "behter": 12
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 29
+    }
+  },
+  "17": {
+    "para_number": 17,
+    "nazrah_total-behtar_days": 378,
+    "nazrah_total-mumtaz_days": 281,
+    "hifz_total-behtar_days": 958,
+    "hifz_total-mumtaz_days": 607,
+    "nazrah_para_lines": {
+      "mumtaz": 35,
+      "behter": 25
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 10
+    },
+    "nazrah_para_days": {
+      "mumtaz": 9,
+      "behter": 12
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 29
+    }
+  },
+  "18": {
+    "para_number": 18,
+    "nazrah_total-behtar_days": 390,
+    "nazrah_total-mumtaz_days": 289,
+    "hifz_total-behtar_days": 987,
+    "hifz_total-mumtaz_days": 628,
+    "nazrah_para_lines": {
+      "mumtaz": 40,
+      "behter": 25
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 10
+    },
+    "nazrah_para_days": {
+      "mumtaz": 8,
+      "behter": 12
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 29
+    }
+  },
+  "19": {
+    "para_number": 19,
+    "nazrah_total-behtar_days": 402,
+    "nazrah_total-mumtaz_days": 297,
+    "hifz_total-behtar_days": 1016,
+    "hifz_total-mumtaz_days": 649,
+    "nazrah_para_lines": {
+      "mumtaz": 40,
+      "behter": 25
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 10
+    },
+    "nazrah_para_days": {
+      "mumtaz": 8,
+      "behter": 12
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 29
+    }
+  },
+  "20": {
+    "para_number": 20,
+    "nazrah_total-behtar_days": 416,
+    "nazrah_total-mumtaz_days": 305,
+    "hifz_total-behtar_days": 1045,
+    "hifz_total-mumtaz_days": 670,
+    "nazrah_para_lines": {
+      "mumtaz": 40,
+      "behter": 25
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 10
+    },
+    "nazrah_para_days": {
+      "mumtaz": 7,
+      "behter": 12
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 29
+    }
+  },
+  "21": {
+    "para_number": 21,
+    "nazrah_total-behtar_days": 425,
+    "nazrah_total-mumtaz_days": 312,
+    "hifz_total-behtar_days": 1069,
+    "hifz_total-mumtaz_days": 691,
+    "nazrah_para_lines": {
+      "mumtaz": 45,
+      "behter": 32
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 7,
+      "behter": 9
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    }
+  },
+  "22": {
+    "para_number": 22,
+    "nazrah_total-behtar_days": 434,
+    "nazrah_total-mumtaz_days": 319,
+    "hifz_total-behtar_days": 1093,
+    "hifz_total-mumtaz_days": 712,
+    "nazrah_para_lines": {
+      "mumtaz": 45,
+      "behter": 32
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 7,
+      "behter": 9
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    }
+  },
+  "23": {
+    "para_number": 23,
+    "nazrah_total-behtar_days": 443,
+    "nazrah_total-mumtaz_days": 326,
+    "hifz_total-behtar_days": 1117,
+    "hifz_total-mumtaz_days": 733,
+    "nazrah_para_lines": {
+      "mumtaz": 45,
+      "behter": 32
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 7,
+      "behter": 9
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    }
+  },
+  "24": {
+    "para_number": 24,
+    "nazrah_total-behtar_days": 452,
+    "nazrah_total-mumtaz_days": 332,
+    "hifz_total-behtar_days": 1141,
+    "hifz_total-mumtaz_days": 754,
+    "nazrah_para_lines": {
+      "mumtaz": 55,
+      "behter": 32
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 6,
+      "behter": 9
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    }
+  },
+  "25": {
+    "para_number": 25,
+    "nazrah_total-behtar_days": 463,
+    "nazrah_total-mumtaz_days": 339,
+    "hifz_total-behtar_days": 1165,
+    "hifz_total-mumtaz_days": 775,
+    "nazrah_para_lines": {
+      "mumtaz": 55,
+      "behter": 32
+    },
+    "hifz_para_lines": {
+      "mumtaz": 14,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 6,
+      "behter": 9
+    },
+    "hifz_para_days": {
+      "mumtaz": 21,
+      "behter": 24
+    }
+  },
+  "26": {
+    "para_number": 26,
+    "nazrah_total-behtar_days": 470,
+    "nazrah_total-mumtaz_days": 344,
+    "hifz_total-behtar_days": 1189,
+    "hifz_total-mumtaz_days": 793,
+    "nazrah_para_lines": {
+      "mumtaz": 60,
+      "behter": 40
+    },
+    "hifz_para_lines": {
+      "mumtaz": 16,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 5,
+      "behter": 7
+    },
+    "hifz_para_days": {
+      "mumtaz": 18,
+      "behter": 24
+    }
+  },
+  "27": {
+    "para_number": 27,
+    "nazrah_total-behtar_days": 477,
+    "nazrah_total-mumtaz_days": 349,
+    "hifz_total-behtar_days": 1213,
+    "hifz_total-mumtaz_days": 811,
+    "nazrah_para_lines": {
+      "mumtaz": 60,
+      "behter": 40
+    },
+    "hifz_para_lines": {
+      "mumtaz": 16,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 5,
+      "behter": 7
+    },
+    "hifz_para_days": {
+      "mumtaz": 18,
+      "behter": 24
+    }
+  },
+  "28": {
+    "para_number": 28,
+    "nazrah_total-behtar_days": 484,
+    "nazrah_total-mumtaz_days": 354,
+    "hifz_total-behtar_days": 1240,
+    "hifz_total-mumtaz_days": 831,
+    "nazrah_para_lines": {
+      "mumtaz": 65,
+      "behter": 40
+    },
+    "hifz_para_lines": {
+      "mumtaz": 16,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 5,
+      "behter": 7
+    },
+    "hifz_para_days": {
+      "mumtaz": 20,
+      "behter": 27
+    }
+  },
+  "29": {
+    "para_number": 29,
+    "nazrah_total-behtar_days": 493,
+    "nazrah_total-mumtaz_days": 360,
+    "hifz_total-behtar_days": 1267,
+    "hifz_total-mumtaz_days": 851,
+    "nazrah_para_lines": {
+      "mumtaz": 65,
+      "behter": 40
+    },
+    "hifz_para_lines": {
+      "mumtaz": 16,
+      "behter": 12
+    },
+    "nazrah_para_days": {
+      "mumtaz": 5,
+      "behter": 7
+    },
+    "hifz_para_days": {
+      "mumtaz": 20,
+      "behter": 27
+    }
+  },
+  "30": {
+    "para_number": 30,
+    "nazrah_total-behtar_days": 56,
+    "nazrah_total-mumtaz_days": 34,
+    "hifz_total-behtar_days": 60,
+    "hifz_total-mumtaz_days": 120,
+    "nazrah_para_lines": {
+      "mumtaz": 10,
+      "behter": 6
+    },
+    "hifz_para_lines": {
+      "mumtaz": 5.6,
+      "behter": 3
+    },
+    "nazrah_para_days": {
+      "mumtaz": 34,
+      "behter": 56
+    },
+    "hifz_para_days": {
+      "mumtaz": 60,
+      "behter": 120
+    }
+  }
+}

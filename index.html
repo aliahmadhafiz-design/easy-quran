@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ur" dir="rtl" id="app-root">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فیضان آن لائن اکیڈمي - ڈیش بورڈ ڈیسک ٹاپ</title>
+
+    <!-- Preload sql.js WASM so it's ready when any page needs it -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"
+      as="script"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.wasm"
+      as="fetch"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="src/css/global.css" />
+  </head>
+  <body
+    class="bg-[#f9f9f9] text-[#19232a] font-sans antialiased h-screen flex flex-col overflow-hidden select-none smooth-transition"
+  >
+    <!-- ── Navbar ─────────────────────────────────────────────── -->
+    <header
+      style="background: var(--dorar-nav-gradient)"
+      class="h-16 px-6 flex items-center justify-between z-30 shrink-0 shadow-md relative"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          id="toggle-right-sidebar"
+          class="p-2 hover:bg-white/10 active:bg-white/20 text-white rounded-xl cursor-pointer smooth-transition"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <h1
+          class="font-urdu-kasheeda text-2xl lg:text-3xl text-white drop-shadow-sm font-medium pr-1"
+        >
+          فیضان آن لائن اکیڈمی
+        </h1>
+      </div>
+
+      <div class="flex-1 max-w-lg mx-12 hidden md:block relative">
+        <div class="relative group">
+          <div
+            class="absolute inset-0 bg-white/10 group-hover:bg-white/15 focus-within:!bg-white rounded-xl smooth-transition border border-white/10 focus-within:border-transparent backdrop-blur-md"
+          ></div>
+          <input
+            id="global-search-input"
+            type="text"
+            placeholder="تلاش کریں (سورۃ، پارہ، آیت نمبر، اسباق)..."
+            class="w-full relative z-10 bg-transparent text-white focus:text-[#19232a] rounded-xl py-2.5 pr-11 pl-4 text-xs font-urdu outline-none smooth-transition placeholder-white/70 focus:placeholder-[#6c757d]"
+          />
+          <svg
+            class="w-4 h-4 text-white group-focus-within:text-[#4b7c3d] absolute top-3.5 right-4 z-20 smooth-transition"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
+        <!-- Search Results Dropdown -->
+        <div
+          id="search-results-dropdown"
+          class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 max-h-[400px] overflow-y-auto z-50 no-scrollbar"
+          dir="rtl"
+        ></div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button
+          onclick="window.location.hash = '#/attendance'"
+          class="bg-[#14f08b]/20 hover:bg-[#14f08b] text-[#14f08b] hover:text-stone-900 px-4 py-2 rounded-xl text-xs font-urdu font-bold smooth-transition cursor-pointer shadow-xs border border-[#14f08b]/30"
+        >
+          یومیہ حاضری
+        </button>
+        <button
+          onclick="window.location.hash = '#/homework'"
+          class="bg-[#ffc107]/20 hover:bg-[#ffc107] text-[#ffc107] hover:text-stone-900 px-4 py-2 rounded-xl text-xs font-urdu font-bold smooth-transition cursor-pointer shadow-xs border border-[#ffc107]/30"
+        >
+          ہوم ورک
+        </button>
+        <div
+          id="open-profile-btn"
+          class="w-9 h-9 rounded-xl bg-white/20 text-white border border-white/20 flex items-center justify-center font-urdu font-bold text-base cursor-pointer shadow-xs hover:scale-105 smooth-transition"
+        >
+          ف
+        </div>
+        <!-- Dark Mode Toggle Button Working Pending
+        <button id="theme-toggle" 
+                class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors duration-200">
+          Sun Icon (Visible in dark mode)
+          <svg id="theme-toggle-dark-icon" 
+               class="w-5 h-5 text-yellow-500 hidden dark:block" 
+               fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+          Moon Icon (Visible in light mode) 
+          <svg id="theme-toggle-light-icon" 
+               class="w-5 h-5 text-slate-700 dark:hidden" 
+               fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        </button>-->
+        <button
+          id="toggle-left-sidebar"
+          class="p-2 hover:bg-white/10 active:bg-white/20 text-white rounded-xl cursor-pointer smooth-transition"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ── Content area ──────────────────────────────────────── -->
+    <div class="flex flex-1 overflow-hidden relative">
+      <!-- Right Sidebar — Main Navigation -->
+      <aside
+        id="right-sidebar"
+        class="w-64 bg-white border-l border-[#dee2e6]/50 flex flex-col justify-between p-4 smooth-transition shrink-0 z-20"
+      >
+        <nav class="flex flex-col gap-1.5">
+          <a
+            href="#/dashboard"
+            data-route="/dashboard"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>ڈیش بورڈ</span></a
+          >
+          <a
+            href="#/quran"
+            data-route="/quran"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>قرآن کریم</span></a
+          >
+          <a
+            href="#/attendance"
+            data-route="/attendance"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>یومیہ حاضری</span></a
+          >
+          <a
+            href="#/homework"
+            data-route="/homework"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>ہوم ورک</span></a
+          >
+          <a
+            href="#/planner"
+            data-route="/planner"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>اسباق منصوبہ سازی </span></a
+          >
+          <a
+            href="#/students"
+            data-route="/students"
+            class="nav-link flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#6c757d] hover:bg-[#f8f9fa] hover:text-[#4b7c3d] text-sm font-urdu font-medium smooth-transition border-r-4 border-transparent"
+            ><span>طلباء کرام</span></a
+          >
+        </nav>
+        <div
+          class="text-center text-[10px] text-[#6c757d] border-t border-[#dee2e6]/40 pt-3 font-mono"
+        >
+          Developed By : Ali Ahmad
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main
+        class="flex-1 overflow-y-auto p-6 lg:p-8 no-scrollbar bg-[#f9f9f9] smooth-transition"
+      >
+        <div id="page-content"></div>
+      </main>
+
+      <!-- Left Sidebar — Quran Quick Navigation -->
+      <aside
+        id="left-sidebar"
+        class="w-80 bg-white border-r border-[#dee2e6]/50 flex flex-col smooth-transition shrink-0 z-20 overflow-hidden"
+      >
+        <!-- Tabs Header -->
+        <div class="flex border-b border-[#dee2e6] shrink-0 bg-[#f8f9fa]">
+          <button
+            id="sidebar-tab-surah"
+            class="flex-1 py-3 text-xs font-urdu font-bold text-center border-b-2 border-[#4b7c3d] text-[#4b7c3d] cursor-pointer focus:outline-none"
+          >
+            سورۃ فہرست
+          </button>
+          <button
+            id="sidebar-tab-para"
+            class="flex-1 py-3 text-xs font-urdu font-bold text-center border-b-2 border-transparent text-[#6c757d] hover:text-[#4b7c3d] cursor-pointer focus:outline-none"
+          >
+            پارہ فہرست
+          </button>
+        </div>
+
+        <!-- Tab Content Area -->
+        <div class="flex-1 overflow-y-auto p-4 no-scrollbar">
+          <!-- Surah List Container -->
+          <div id="sidebar-surah-list-container" class="space-y-1">
+            <div class="text-center py-6 text-xs text-[#6c757d] font-urdu">
+              قرآن لوڈ ہو رہا ہے...
+            </div>
+          </div>
+
+          <!-- Para List Container (hidden by default) -->
+          <div id="sidebar-para-list-container" class="space-y-1 hidden">
+            <div class="text-center py-6 text-xs text-[#6c757d] font-urdu">
+              قرآن لوڈ ہو رہا ہے...
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- App bootstrap -->
+    <script src="src/js/app.js" defer></script>
+  </body>
+</html>

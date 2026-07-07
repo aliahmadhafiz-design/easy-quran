@@ -1,0 +1,825 @@
+/* ============================================================
+   FOA Quran — global.css
+   ============================================================ */
+
+/* ── Fonts ──────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Jameel Noori";
+  src: url("../../res/font/urdu.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "QuranLocalFont";
+  src: url("/res/font/arabic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── CSS Variables ──────────────────────────────────────────── */
+:root {
+  --dorar-nav-gradient: linear-gradient(
+    to left,
+    rgb(82, 126, 69),
+    rgb(88, 132, 75),
+    rgb(94, 138, 81),
+    rgb(100, 144, 87),
+    rgb(106, 150, 93)
+  );
+  --dorar-card-gradient: linear-gradient(
+    180deg,
+    rgb(250, 247, 230) 0px,
+    rgb(249, 249, 249) 100%
+  );
+  --quran-line-height: 5rem;
+  --quran-font-size: 2.5rem;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  background-color: #f9f9f9;
+  color: #19232a;
+  font-family: sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  user-select: none;
+}
+
+/* ── Utility classes ────────────────────────────────────────── */
+.font-urdu {
+  font-family: "Jameel Noori", "Amiri", serif;
+}
+.font-urdu-kasheeda {
+  font-family: "Jameel Noori", "Amiri", serif;
+  font-style: italic;
+}
+
+.premium-shadow {
+  box-shadow:
+    0 12px 30px -10px rgba(0, 0, 0, 0.04),
+    0 4px 12px -5px rgba(0, 0, 0, 0.02);
+}
+
+.smooth-transition {
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dashboard card gradient background */
+.card-gradient-bg {
+  background: var(--dorar-card-gradient);
+}
+
+/* ── Scrollbar hide ─────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   ATTENDANCE PAGE
+   ============================================================ */
+.attendance-page select,
+.attendance-page button {
+  font-family: "Jameel Noori", "Amiri", serif;
+}
+
+.attendance-page button {
+  letter-spacing: 0.02em;
+}
+
+.attendance-page #output-wrapper {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+.attendance-page #output-wrapper:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   HOMEWORK PAGE
+   ============================================================ */
+.homework-page select,
+.homework-page input,
+.homework-page button {
+  font-family: "Jameel Noori", "Amiri", serif;
+}
+
+/* Physical Quran lines — homework */
+.homework-page .quran-lined-container {
+  font-family: "QuranLocalFont", "Jameel Noori", "Amiri", serif !important;
+  text-align: justify;
+  text-align-last: justify;
+  direction: rtl;
+  font-size: var(--quran-font-size);
+  line-height: var(--quran-line-height);
+  background-image: linear-gradient(transparent 96%, #cbd5e1 96%);
+  background-size: 100% var(--quran-line-height);
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.homework-page .quran-lined-container,
+.homework-page .quran-lined-container * {
+  font-family: "QuranLocalFont", "Jameel Noori", "Amiri", serif !important;
+}
+
+@media (max-width: 768px) {
+  .homework-page .quran-lined-container {
+    font-size: 2rem;
+    line-height: 4.5rem;
+    background-size: 100% 4.5rem;
+  }
+}
+
+/* ============================================================
+   PLANNER PAGE
+   ============================================================ */
+.planner-page select,
+.planner-page input,
+.planner-page button {
+  font-family: "Jameel Noori", "Amiri", serif;
+}
+
+.planner-page .planner-table-wrapper {
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+}
+.planner-page .planner-table th,
+.planner-page .planner-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+.planner-page .planner-table th {
+  padding: 1rem;
+}
+.planner-page .planner-table td {
+  padding: 1rem;
+  vertical-align: top;
+}
+.planner-page .planner-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ============================================================
+   QURAN PAGE — MUSHAAF STYLE ENHANCEMENTS
+   ============================================================ */
+
+/* ── Hero Section ── */
+.quran-page .quran-hero {
+  min-height: 180px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 210, 172, 0.12),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(248, 250, 252, 0.95),
+      rgba(236, 248, 255, 0.95)
+    );
+  border: 1px solid rgba(15, 111, 147, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+/* ── Physical Quran Main Body ── */
+.quran-physical-body {
+  font-family: "QuranLocalFont", "QuranLocalFont", "Amiri", serif;
+  font-size: var(--quran-font-size);
+  line-height: var(--quran-line-height);
+  /*color: #1e293b; OLD Color */
+  color: #1e293b;
+  text-align: justify;
+  text-align-last: right;
+  direction: rtl;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  /* Ruled lines - Mushaf Style */
+  background-image: linear-gradient(
+    transparent 95.5%,
+    #cbd5e1 95.5%,
+    #cbd5e1 96%,
+    transparent 96%
+  );
+  background-size: 100% var(--quran-line-height);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+
+  /* Mushaf Paper Effect */
+  background-color: #fefcf5;
+  border: 1px solid #e8e0d0;
+  box-shadow:
+    inset 0 0 60px rgba(245, 158, 11, 0.03),
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+/* ── Mushaf Page Edge Effect ── */
+.quran-physical-body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(210, 180, 140, 0.04) 0%,
+    transparent 3%,
+    transparent 97%,
+    rgba(210, 180, 140, 0.04) 100%
+  );
+  pointer-events: none;
+  border-radius: 1rem;
+}
+
+/* ── Mushaf Page Shadow Effect ── */
+.quran-physical-body::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  border-radius: 0.9rem;
+}
+
+/* ── Centered Surah Name Title ── */
+.quran-surah-title-centered {
+  display: block;
+  text-align: center;
+  font-family: "QuranLocalFont", "Jameel Noori", "Amiri", serif !important;
+  font-size: 2.8rem;
+  line-height: var(--quran-line-height);
+  color: #15803d;
+  font-weight: 700;
+  margin: 1.5rem 0 2rem 0;
+
+  /* Ruled lines behind title */
+  background-image: linear-gradient(
+    transparent 95.5%,
+    #cbd5e1 95.5%,
+    #cbd5e1 96%,
+    transparent 96%
+  );
+  background-size: 100% var(--quran-line-height);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+
+  text-shadow: 0 1px 2px rgba(21, 128, 61, 0.1);
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* ── Surah Title Decorative Border ── */
+.quran-surah-title-centered::before,
+.quran-surah-title-centered::after {
+  content: "✦";
+  color: #d4a548;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  opacity: 0.6;
+}
+
+/* ── Centered Bismillah Title ── */
+.quran-bismillah-centered {
+  display: block;
+  text-align: center;
+  font-family: "QuranLocalFont", "Amiri", serif !important;
+  font-size: 2.5rem;
+  line-height: var(--quran-line-height);
+  color: #1e293b;
+  margin: 1.5rem 0;
+
+  /* Ruled lines behind Bismillah */
+  background-image: linear-gradient(
+    transparent 95.5%,
+    #cbd5e1 95.5%,
+    #cbd5e1 96%,
+    transparent 96%
+  );
+  background-size: 100% var(--quran-line-height);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 0.3rem 0;
+}
+
+/* ── Inline Verse ── */
+.quran-verse-inline {
+  display: inline;
+  background-image: linear-gradient(
+    transparent 95.5%,
+    #cbd5e1 95.5%,
+    #cbd5e1 96%,
+    transparent 96%
+  );
+  background-size: 100% var(--quran-line-height);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+}
+
+/* ── Verse Number Circle ── */
+.quran-verse-number-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1.5px solid #8b7a5a;
+  border-radius: 50%;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #5c4b2a;
+  margin: 0 0.4rem 0 0.6rem;
+  vertical-align: middle;
+  line-height: 1;
+  background: #fefcf5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* ── Verse Number Hover Effect ── */
+.quran-verse-number-inline:hover {
+  background: #f5f0e8;
+  border-color: #b8a58a;
+  transform: scale(1.05);
+}
+
+/* ── Ruku Marker (Mushaf Style) ── */
+.quran-ruku-marker {
+  display: block;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.2rem 0;
+  line-height: var(--quran-line-height);
+
+  /* Ruled lines behind Ruku */
+  background-image: linear-gradient(
+    transparent 95.5%,
+    #cbd5e1 95.5%,
+    #cbd5e1 96%,
+    transparent 96%
+  );
+  background-size: 100% var(--quran-line-height);
+  background-position: 0 0;
+  background-repeat: repeat-y;
+}
+
+/* ── Ruku Badge ── */
+.quran-ruku-badge {
+  font-family: "Jameel Noori", "Amiri", serif;
+  color: #78350f;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 0.15rem 1.2rem;
+  border: 1px solid #f59e0b;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15);
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+/* ── Ruku Badge Decorative Dots ── */
+.quran-ruku-badge::before,
+.quran-ruku-badge::after {
+  content: "•";
+  color: #d97706;
+  margin: 0 0.4rem;
+  opacity: 0.5;
+  font-size: 0.5rem;
+}
+
+/* ── Audio Button Container ── */
+.quran-audio-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 4px;
+  vertical-align: middle;
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid #e8e0d0;
+  padding: 1px 4px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.quran-audio-buttons:hover {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: #d4c8b0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Audio Button Individual ── */
+.quran-audio-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 3px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.quran-audio-btn-hadar {
+  color: #059669;
+}
+
+.quran-audio-btn-hadar:hover {
+  color: #047857;
+  transform: scale(1.15);
+  background: rgba(5, 150, 105, 0.08);
+}
+
+.quran-audio-btn-tarteel {
+  color: #d97706;
+}
+
+.quran-audio-btn-tarteel:hover {
+  color: #b45309;
+  transform: scale(1.15);
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.quran-audio-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Reader Header ── */
+.quran-reader-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #eff6ff 100%);
+  border: 1px solid #d1d5db;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.quran-reader-header-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: #0f6f93;
+  margin-bottom: 0.4rem;
+}
+
+.quran-reader-header-title {
+  font-family: "Jameel Noori", "Amiri", serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.quran-reader-header-sub {
+  font-family: "Jameel Noori", "Amiri", serif;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.3rem;
+}
+
+/* ── Responsive Adjustments ── */
+@media (max-width: 768px) {
+  .quran-physical-body {
+    padding: 1rem 1.2rem;
+    font-size: 1.8rem;
+    line-height: 4rem;
+    background-size: 100% 4rem;
+  }
+
+  .quran-surah-title-centered {
+    font-size: 2.2rem;
+    line-height: 4rem;
+    background-size: 100% 4rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .quran-bismillah-centered {
+    font-size: 2rem;
+    line-height: 4rem;
+    background-size: 100% 4rem;
+  }
+
+  .quran-verse-number-inline {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.65rem;
+    margin: 0 0.3rem 0 0.4rem;
+  }
+
+  .quran-surah-title-centered::before,
+  .quran-surah-title-centered::after {
+    content: "";
+    margin: 0 0.5rem;
+  }
+}
+
+/* ── Smooth Scroll for Verse Anchors ── */
+#verse-anchor-* {
+  scroll-margin-top: 110px;
+}
+
+/* ── Page Number Indicator (Optional) ── */
+.quran-page-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem 0;
+  font-family: "Jameel Noori", "Amiri", serif;
+  font-size: 0.8rem;
+  color: #8b7a5a;
+  opacity: 0.6;
+}
+
+.quran-page-indicator .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+  max-width: 100px;
+}
+
+/* ── Mushaf Decorative Ornament ── */
+.quran-mushaf-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.5rem 0;
+  opacity: 0.3;
+  user-select: none;
+}
+
+.quran-mushaf-ornament .ornament-line {
+  flex: 1;
+  height: 1px;
+  max-width: 80px;
+  background: linear-gradient(to right, transparent, #d4a548, transparent);
+}
+
+.quran-mushaf-ornament .ornament-icon {
+  color: #d4a548;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+}
+
+/* ============================================================
+   DASHBOARD CARDS (hover glow)
+   ============================================================ */
+.dashboard-surah-card:hover,
+.dashboard-para-card:hover {
+  box-shadow: 0 8px 28px rgba(75, 124, 61, 0.14);
+}
+/* ============================================================
+   AUDIO PLAYER ENHANCEMENTS (Floating Premium Design)
+   ============================================================ */
+
+/* 1. Floating Card Container & Glassmorphism */
+#quran-audio-player {
+  left: 1rem !important;
+  right: 1rem !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  border-radius: 1.5rem !important;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 78, 59, 0.92) 0%,
+    rgba(2, 44, 34, 0.96) 100%
+  ) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 20px 50px -12px rgba(0, 0, 0, 0.5),
+    0 8px 20px -6px rgba(16, 185, 129, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 2. Fix Hide/Show Animation for Floating Position */
+/* (Ensures it slides completely off-screen when hidden) */
+#quran-audio-player.translate-y-0 {
+  bottom: 1.5rem !important;
+  transform: translateY(0) !important;
+}
+#quran-audio-player.translate-y-full {
+  bottom: 1.5rem !important;
+  transform: translateY(calc(100% + 1.5rem)) !important;
+}
+
+@media (min-width: 768px) {
+  #quran-audio-player {
+    left: 2rem !important;
+    right: 2rem !important;
+  }
+  #quran-audio-player.translate-y-0 {
+    bottom: 2rem !important;
+  }
+  #quran-audio-player.translate-y-full {
+    bottom: 2rem !important;
+    transform: translateY(calc(100% + 2rem)) !important;
+  }
+}
+
+/* 3. Inner Container Spacing */
+#quran-audio-player .container {
+  padding: 0.75rem 1.25rem !important;
+}
+
+/* 4. Glowing Play Button */
+#quran-audio-player #audio-play-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  box-shadow:
+    0 4px 15px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+#quran-audio-player #audio-play-btn:hover {
+  transform: scale(1.08) !important;
+  box-shadow:
+    0 6px 20px rgba(16, 185, 129, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+#quran-audio-player #audio-play-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* 5. Elegant Progress Bar */
+#quran-audio-player [onclick="window.seekAudio(event)"] {
+  background: rgba(0, 0, 0, 0.35) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  height: 6px !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+}
+#quran-audio-player #audio-progress-bar {
+  background: linear-gradient(90deg, #34d399 0%, #6ee7b7 100%) !important;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.5) !important;
+  border-radius: 9999px !important;
+}
+
+/* 6. Interactive Close Button */
+#quran-audio-player button[onclick="window.closeAudioPlayer()"] {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+#quran-audio-player button[onclick="window.closeAudioPlayer()"]:hover {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #fca5a5 !important;
+  transform: rotate(90deg) !important;
+}
+
+/* 7. Premium Reciter Dropdown */
+#quran-audio-player #audio-reciter-select {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #d1fae5 !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+#quran-audio-player #audio-reciter-select:hover,
+#quran-audio-player #audio-reciter-select:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(52, 211, 153, 0.5) !important;
+}
+#quran-audio-player #audio-reciter-select option {
+  background: #064e3b;
+  color: #d1fae5;
+}
+
+/* 8. Custom Volume Slider Thumb */
+#quran-audio-player #audio-volume {
+  background: rgba(0, 0, 0, 0.35) !important;
+  height: 4px !important;
+  border-radius: 9999px !important;
+}
+#quran-audio-player #audio-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #6ee7b7, #10b981);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border: 2px solid #fff;
+  transition: transform 0.2s ease;
+}
+#quran-audio-player #audio-volume::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+#quran-audio-player #audio-volume::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #6ee7b7, #10b981);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border: 2px solid #fff;
+}
+
+/* 9. Typography Polish */
+#quran-audio-player #audio-ayah-info {
+  font-size: 0.9rem !important;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+#quran-audio-player #audio-current-time,
+#quran-audio-player #audio-duration {
+  font-size: 0.7rem !important;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ── Dark Mode Color Variables ────────────────────────────────── */
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #f9f9f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #19232a;
+  --text-secondary: #374151;
+  --border-color: #e5e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --hover-bg: #f3f4f6;
+}
+
+/* Dark Mode Colors */
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --hover-bg: #334155;
+}
+
+/* Apply the variables to your body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar {
+  background: #1e293b;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}

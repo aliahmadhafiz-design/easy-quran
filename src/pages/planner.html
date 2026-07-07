@@ -1,0 +1,88 @@
+﻿<!-- Load html2canvas from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<div class="planner-page bg-white rounded-2xl border border-[#dee2e6]/40 p-6 premium-shadow smooth-transition">
+  <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#dee2e6]/50">
+    <div class="bg-[#4b7c3d] text-white p-3 rounded-2xl">
+      <i class="fa-solid fa-calendar-days text-2xl"></i>
+    </div>
+    <div>
+      <h2 class="text-2xl font-urdu-kasheeda text-[#19232a]">طالب علم کے اسباق کی منصوبہ سازی</h2>
+      <p class="text-sm text-[#6c757d] font-urdu">ناظرہ قرآن اور حفظ قرآن کورس کے طلباء کے لئے کسی بھی پارے کی منصوبہ سازی تیار فرمائیں</p>
+    </div>
+    <div id="engine-status" class="ml-auto flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 px-3 py-1.5 rounded-2xl text-amber-800 text-xs font-semibold">
+      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+      Loading Core Files...
+    </div>
+  </div> 
+
+  <div class="grid grid-cols-1 xl:grid-cols-4 gap-4 items-end">
+    <div>
+      <label class="block text-xs font-urdu font-bold text-[#4b7c3d] mb-1 uppercase tracking-wide">پارہ منتخب فرمائیں</label>
+      <select id="plan-para" class="w-full bg-[#f8f9fa] border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition"></select>
+    </div>
+    <div>
+      <label class="block text-xs font-urdu font-bold text-[#4b7c3d] mb-1 uppercase tracking-wide">کورس منتخب فرمائیں</label>
+      <select id="plan-stream" class="w-full bg-[#f8f9fa] border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition">
+        <option value="nazrah">ناظرہ قرآن پاک</option>
+        <option value="hifz">حفظ القرآن</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-urdu font-bold text-[#4b7c3d] mb-1 uppercase tracking-wide">کیفیت منتخب فرمائیں</label>
+      <select id="plan-tier" class="w-full bg-[#f8f9fa] border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition">
+        <option value="behter">بہتر کیفیت</option>
+        <option value="mumtaz">ممتاز کیفیت</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-urdu font-bold text-[#4b7c3d] mb-1 uppercase tracking-wide">پارہ شروع کرنے کی تاریخ</label>
+      <input type="date" id="plan-date" class="w-full bg-[#f8f9fa] border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition" />
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <button onclick="generatePlan()" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#4b7c3d] to-[#0f6f93] text-white text-sm font-bold font-urdu shadow-lg hover:opacity-95 transition-all">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      پلان تیار فرمائیں
+    </button>
+    <button id="download-btn" onclick="downloadPlannerImage()" class="hidden inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#19232a] text-white text-sm font-bold font-urdu shadow-lg hover:bg-[#0f1f28] transition-all">
+      <i class="fa-solid fa-file-image"></i>
+      پلان ڈاؤنلوڈ فرمائیں
+    </button>
+  </div>
+
+  <div id="print-area-wrapper" class="hidden mt-8">
+    <div id="planner-capture-target" class="bg-white border-2 border-[#dee2e6] rounded-2xl shadow-xl p-8 overflow-hidden">
+      <div class="border-b-4 border-[#4b7c3d] pb-4 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h3 id="banner-title" class="text-2xl font-urdu-kasheeda text-[#19232a] tracking-tight">STUDENT SYLLABUS LESSON PLANNER</h3>
+          <p id="banner-subtitle" class="text-sm font-urdu text-[#4b7c3d] tracking-wide mt-1 uppercase"></p>
+        </div>
+        <div class="text-right text-[10px] font-urdu text-[#6c757d] font-bold">
+          <div>Faizan Online Quran Academy</div>
+          <div id="banner-timestamp" class="text-[10px] font-medium mt-1"></div>
+        </div>
+      </div>
+
+      <div class="planner-table-wrapper overflow-x-auto">
+        <table class="w-full text-left border-collapse planner-table">
+          <thead>
+            <tr class="bg-[#19232a] text-white text-xs uppercase tracking-wider">
+              <th class="p-3 font-bold rounded-l-2xl">Timeline Day</th>
+              <th class="p-3 font-bold">Calendar Date</th>
+              <th class="p-3 font-bold">Starting Point Lesson Boundary</th>
+              <th class="p-3 font-bold">Ending Point Lesson Boundary</th>
+              <th class="p-3 font-bold rounded-r-2xl text-center">Total Lines</th>
+            </tr>
+          </thead>
+          <tbody id="planner-table-rows" class="text-[#19232a] font-urdu text-sm divide-y divide-[#e2e8f0]"></tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-[#dee2e6] flex flex-col md:flex-row justify-between text-[10px] font-bold text-[#6c757d] uppercase tracking-wider gap-2">
+        <div>Note: Sundays are excluded from active reading tracks.</div>
+        <div>Authorized Signature: _________________________</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="homework-page bg-white rounded-2xl border border-[#dee2e6]/40 p-6 premium-shadow smooth-transition">
+  <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#dee2e6]/50">
+    <div class="bg-[#4b7c3d] text-white p-3 rounded-2xl">
+      <i class="fa-solid fa-book-open-reader text-2xl"></i>
+    </div>
+    <div>
+      <h2 class="text-2xl font-urdu-kasheeda text-[#19232a]">طالب علم کا ہوم ورک تیار فرمائیں۔۔۔</h2>
+      <p class="text-sm text-[#6c757d] font-urdu">ہوم ورک ڈاؤنلوڈ کر کے باصانی طالب علم کے ساتھ شئر فرمائیں ۔۔۔</p>
+    </div>
+    <div id="engine-status" class="ml-auto flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 px-3 py-1.5 rounded-2xl text-amber-800 text-xs font-semibold">
+      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+      Syncing Database...
+    </div>
+  </div> 
+
+  <div class="space-y-4">
+    <div>
+      <label class="block text-xs font-urdu font-bold text-[#19232a] mb-1 uppercase tracking-wide">طالب علم کا نام</label>
+      <input type="text" id="student-name" placeholder="Enter student's full name..." class="w-full max-w-2xl bg-[#f8f9fa] border border-[#dee2e6] rounded-2xl p-3 text-sm font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition">
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-2">
+      <div class="bg-[#f8f9fa] rounded-2xl border border-[#dee2e6]/50 p-5 grid grid-cols-2 gap-3">
+        <div class="col-span-2 text-xs font-urdu font-bold text-[#4b7c3d] uppercase tracking-wide">طالب علم کے سبق کی ابتداء</div>
+        <div>
+          <label class="block text-[10px] font-urdu font-bold text-[#19232a] mb-1 uppercase">سورۃ منتخب فرمائیں</label>
+          <select id="start-surah" onchange="updateAyahLimits('start')" class="w-full bg-white border border-[#dee2e6] rounded-2xl p-2 text-xs font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition"></select>
+        </div>
+        <div>
+          <label class="block text-[10px] font-urdu font-bold text-[#19232a] mb-1 uppercase">آیت نمبر منتخب فرمائیں</label>
+          <input type="number" id="start-ayah" value="1" min="1" class="w-full bg-white border border-[#dee2e6] rounded-2xl p-2 text-xs font-urdu focus:ring-2 focus:ring-[#4b7c3d] focus:outline-none smooth-transition">
+        </div>
+      </div>
+
+      <div class="bg-[#f8f9fa] rounded-2xl border border-[#dee2e6]/50 p-5 grid grid-cols-2 gap-3">
+        <div class="col-span-2 text-xs font-urdu font-bold text-[#0f6f93] uppercase tracking-wide">طالب علم کے سبق کی انتہاء</div>
+        <div>
+          <label class="block text-[10px] font-urdu font-bold text-[#19232a] mb-1 uppercase">سورۃ منتخب فرمائیں</label>
+          <select id="end-surah" onchange="updateAyahLimits('end')" class="w-full bg-white border border-[#dee2e6] rounded-2xl p-2 text-xs font-urdu focus:ring-2 focus:ring-[#0f6f93] focus:outline-none smooth-transition"></select>
+        </div>
+        <div>
+          <label class="block text-[10px] font-urdu font-bold text-[#19232a] mb-1 uppercase">آیت نمبر منتخب فرمائیں</label>
+          <input type="number" id="end-ayah" value="5" min="1" class="w-full bg-white border border-[#dee2e6] rounded-2xl p-2 text-xs font-urdu focus:ring-2 focus:ring-[#0f6f93] focus:outline-none smooth-transition">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <button onclick="generateLessonSheet()" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#4b7c3d] to-[#0f6f93] text-white text-sm font-bold font-urdu shadow-lg hover:opacity-95 transition-all">
+      <i class="fa-solid fa-feather-pointed"></i>
+      سبق تیار فرمائیں
+    </button>
+    <button id="download-btn" onclick="downloadLessonImage()" class="hidden inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#19232a] text-white text-sm font-bold font-urdu shadow-lg hover:bg-[#0f1f28] transition-all">
+      <i class="fa-solid fa-file-image"></i>
+      سبق ڈاؤنلوڈ فرمائیں
+    </button>
+  </div>
+
+  <div id="print-area-wrapper" class="hidden mt-8">
+    <div id="lesson-capture-target" class="bg-white border-2 border-[#dee2e6] rounded-2xl shadow-xl p-8 max-w-5xl mx-auto overflow-hidden relative">
+      <div class="border-b-4 border-[#4b7c3d] pb-4 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <img src="res/image/logo/logo.png" alt="Academy Logo" onerror="this.style.display='none'" class="h-16 object-contain">
+          <div>
+            <h3 class="text-xl font-urdu font-bold text-[#19232a] tracking-tight">Faizan Online Quran Academy</h3>
+            <p id="doc-range-subtitle" class="text-xs font-urdu font-bold text-[#4b7c3d] tracking-wide mt-1"></p>
+            <p id="doc-meta-subtitle" class="text-[11px] font-urdu text-[#6c757d] mt-2"></p>
+          </div>
+        </div>
+        <div class="bg-[#f8f9fa] border border-[#dee2e6] p-3 rounded-2xl text-right min-w-[200px]">
+          <div class="text-[10px] font-bold text-[#6c757d] uppercase tracking-wide">Assigned Student</div>
+          <div id="doc-student-name" class="text-sm font-urdu font-bold text-[#19232a] truncate">—</div>
+          <div id="doc-date" class="text-[10px] font-urdu text-[#6c757d] mt-1"></div>
+        </div>
+      </div>
+
+      <div class="relative bg-white select-none px-2 py-2">
+        <div id="quran-lined-content" class="quran-lined-container text-[#19232a] transition-all"></div>
+      </div>
+
+      <div class="mt-12 pt-4 border-t border-[#dee2e6] flex flex-col md:flex-row justify-between text-[10px] font-bold text-[#6c757d] uppercase tracking-wider gap-2">
+        <div>© Faizan Online Academy. Dawateislami</div>
+        <!--<div>Veritas Script Verified Database Match</div>-->
+      </div>
+    </div>
+  </div>
+</div>
