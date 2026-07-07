@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: "QuranLocalFont";
-  src: url("../../res/font/arabic.woff2") format("woff2");
+  src: url("../../res/font/arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
